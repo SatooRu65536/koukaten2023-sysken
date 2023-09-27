@@ -1,0 +1,22 @@
+:root {
+  font-size: 10px;
+
+  --primary: #75a3bf;
+  --on-primary: #fafcfe;
+  --secondary: #fc6d69;
+  --on-secondary: #fafcfe;
+  --tertiary: #fbc334;
+  --on-tertiary: #fafcfe;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  width: 100vw;
+  overflow-x: hidden;
+}

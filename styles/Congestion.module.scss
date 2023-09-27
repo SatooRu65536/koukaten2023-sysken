@@ -1,0 +1,22 @@
+.congestion {
+  background-color: var(--on-primary);
+
+  .building_name {
+    padding: 50px 0 10px;
+    font-size: 3rem;
+    color: var(--primary);
+    text-align: center;
+  }
+
+  .building {
+    height: 100%;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 10px;
+
+    @media (max-width: 470px) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
