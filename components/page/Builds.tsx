@@ -9,10 +9,6 @@ export default function Builds() {
   const staycounts = useStaycount();
   const router = useRouter();
 
-  useEffect(() => {
-    console.log(staycounts);
-  }, [staycounts]);
-
   return (
     <div className={styles.builds}>
       {staycounts.map((staycount) => (
