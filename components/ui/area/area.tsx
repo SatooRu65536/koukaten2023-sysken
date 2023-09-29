@@ -1,5 +1,5 @@
 import { StarFilledIcon, StarOutlineIcon } from "../../util/icons";
-import styles from "./room.module.scss";
+import styles from "./area.module.scss";
 import Linechart from "../linechart/linechart";
 
 type Props = {
@@ -20,7 +20,7 @@ export default function Room(props: Props) {
   return (
     <section
       id={roomId}
-      className={styles.room}
+      className={styles.area}
       data-select={props.isSelect}
       data-star={props.isStar}
     >

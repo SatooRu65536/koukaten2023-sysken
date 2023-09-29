@@ -1,14 +1,14 @@
 import { useRouter } from "next/router";
 import { useEffect, useRef, useState } from "react";
 import styles from "@/styles/Congestion.module.scss";
-import Room from "@/components/ui/room/room";
+import Room from "@/components/ui/area/area";
 import { useStaycount } from "@/hooks/useStaycount";
 import { useLocalStorage } from "@mantine/hooks";
 import { useHistories } from "@/hooks/useHistories";
 
 export default function CongestionComponent() {
   const [_, { init }] = useHistories();
-  const [roomId, setRoomId] = useState<undefined | string>(undefined);
+  const [areaId, setAreaId] = useState<undefined | string>(undefined);
   const staycounts = useStaycount();
   const [stars, setStars] = useLocalStorage<string[]>({
     key: "stars",
@@ -17,12 +17,12 @@ export default function CongestionComponent() {
   const router = useRouter();
   const mounted = useRef(false);
 
-  function addStar(roomId: string) {
-    setStars((s) => [...s, roomId]);
+  function addStar(areaId: string) {
+    setStars((s) => [...s, areaId]);
   }
 
-  function removeStar(roomId: string) {
-    setStars((s) => s.filter((star) => star !== roomId));
+  function removeStar(areaId: string) {
+    setStars((s) => s.filter((star) => star !== areaId));
   }
 
   useEffect(() => {
@@ -34,18 +34,18 @@ export default function CongestionComponent() {
 
   useEffect(() => {
     if (router.isReady) {
-      setRoomId(router.query.roomId as string);
+      setAreaId(router.query.areaId as string);
     }
   }, [router]);
 
   useEffect(() => {
-    if (roomId) {
-      document.getElementById(roomId)?.scrollIntoView({
+    if (areaId) {
+      document.getElementById(areaId)?.scrollIntoView({
         behavior: "smooth",
         block: "center",
       });
     }
-  }, [roomId]);
+  }, [areaId]);
 
   return (
     <div className={styles.congestion}>
@@ -55,16 +55,16 @@ export default function CongestionComponent() {
 
           <div className={styles.building} key={staycount.building}>
             {staycount.floors.map((floor) =>
-              floor.rooms.map((room) => {
+              floor.areas.map((area) => {
                 return (
                   <Room
-                    key={room.name}
-                    id={room.id}
-                    name={room.name}
+                    key={area.name}
+                    id={area.id}
+                    name={area.name}
                     building={staycount.building}
-                    staycount={room.staycount}
-                    isSelect={roomId === room.id.toString()}
-                    isStar={stars.includes(room.id.toString())}
+                    staycount={area.staycount}
+                    isSelect={areaId === area.id.toString()}
+                    isStar={stars.includes(area.id.toString())}
                     addStar={addStar}
                     removeStar={removeStar}
                   />

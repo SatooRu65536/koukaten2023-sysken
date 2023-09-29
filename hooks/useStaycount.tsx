@@ -18,7 +18,7 @@ export function useStaycount() {
         res.staycounts.forEach((building) => {
           building.floors = _.sortBy(building.floors, "floor");
           building.floors.forEach((floor) => {
-            floor.rooms = _.sortBy(floor.rooms, "name");
+            floor.areas = _.sortBy(floor.areas, "name");
           });
         });
 

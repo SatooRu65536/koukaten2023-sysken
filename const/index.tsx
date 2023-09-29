@@ -19,43 +19,43 @@ export const staycountsResponse: StaycountsResponse = {
       floors: [
         {
           floor: 2,
-          rooms: [{ id: id.next(), name: "アメリカフェ", staycount: 3 }],
+          areas: [{ id: id.next(), name: "アメリカフェ", staycount: 3 }],
         },
         {
           floor: 1,
-          rooms: [{ id: id.next(), name: "キャリアセンター", staycount: 0 }],
+          areas: [{ id: id.next(), name: "キャリアセンター", staycount: 0 }],
         },
         {
           floor: 3,
-          rooms: [
+          areas: [
             { id: id.next(), name: "301", staycount: 5 },
             { id: id.next(), name: "302", staycount: 2 },
           ],
         },
         {
           floor: 4,
-          rooms: [
+          areas: [
             { id: id.next(), name: "401", staycount: 0 },
             { id: id.next(), name: "402", staycount: 0 },
           ],
         },
         {
           floor: 5,
-          rooms: [
+          areas: [
             { id: id.next(), name: "501", staycount: 0 },
             { id: id.next(), name: "502", staycount: 0 },
           ],
         },
         {
           floor: 6,
-          rooms: [
+          areas: [
             { id: id.next(), name: "601", staycount: 0 },
             { id: id.next(), name: "602", staycount: 0 },
           ],
         },
         {
           floor: 7,
-          rooms: [
+          areas: [
             { id: id.next(), name: "701", staycount: 0 },
             { id: id.next(), name: "702", staycount: 0 },
             { id: id.next(), name: "鳥居教授", staycount: 0 },
@@ -69,11 +69,11 @@ export const staycountsResponse: StaycountsResponse = {
       floors: [
         {
           floor: 1,
-          rooms: [],
+          areas: [],
         },
         {
           floor: 2,
-          rooms: [
+          areas: [
             { id: id.next(), name: "G2201", staycount: 0 },
             { id: id.next(), name: "G2202", staycount: 0 },
             { id: id.next(), name: "G2203", staycount: 0 },
@@ -82,7 +82,7 @@ export const staycountsResponse: StaycountsResponse = {
         },
         {
           floor: 3,
-          rooms: [
+          areas: [
             { id: id.next(), name: "G2305", staycount: 0 },
             { id: id.next(), name: "G2306", staycount: 0 },
             { id: id.next(), name: "G2307", staycount: 0 },
@@ -91,7 +91,7 @@ export const staycountsResponse: StaycountsResponse = {
         },
         {
           floor: 4,
-          rooms: [
+          areas: [
             { id: id.next(), name: "G2409", staycount: 0 },
             { id: id.next(), name: "G2410", staycount: 0 },
             { id: id.next(), name: "G2411", staycount: 0 },
@@ -100,7 +100,7 @@ export const staycountsResponse: StaycountsResponse = {
         },
         {
           floor: 5,
-          rooms: [
+          areas: [
             { id: id.next(), name: "G2513", staycount: 0 },
             { id: id.next(), name: "G2514", staycount: 0 },
             { id: id.next(), name: "G2515", staycount: 0 },
@@ -109,7 +109,7 @@ export const staycountsResponse: StaycountsResponse = {
         },
         {
           floor: 6,
-          rooms: [
+          areas: [
             { id: id.next(), name: "G2617", staycount: 0 },
             { id: id.next(), name: "G2618", staycount: 0 },
             { id: id.next(), name: "G2619", staycount: 0 },
@@ -118,7 +118,7 @@ export const staycountsResponse: StaycountsResponse = {
         },
         {
           floor: 7,
-          rooms: [
+          areas: [
             { id: id.next(), name: "G2621", staycount: 0 },
             { id: id.next(), name: "G2622", staycount: 0 },
             { id: id.next(), name: "G2623", staycount: 0 },
@@ -132,7 +132,7 @@ export const staycountsResponse: StaycountsResponse = {
       floors: [
         {
           floor: 1,
-          rooms: [
+          areas: [
             { id: id.next(), name: "内種教授", staycount: 0 },
             { id: id.next(), name: "内種研", staycount: 1 },
             { id: id.next(), name: "玉森准教授", staycount: 0 },
@@ -141,7 +141,7 @@ export const staycountsResponse: StaycountsResponse = {
         },
         {
           floor: 2,
-          rooms: [
+          areas: [
             { id: id.next(), name: "小野木教授", staycount: 0 },
             { id: id.next(), name: "小野木研", staycount: 0 },
             { id: id.next(), name: "小栗講師", staycount: 0 },
@@ -153,7 +153,7 @@ export const staycountsResponse: StaycountsResponse = {
         },
         {
           floor: 3,
-          rooms: [
+          areas: [
             { id: id.next(), name: "伊藤雅教授", staycount: 0 },
             { id: id.next(), name: "伊藤雅研", staycount: 0 },
             { id: id.next(), name: "中村教授", staycount: 0 },
@@ -164,7 +164,7 @@ export const staycountsResponse: StaycountsResponse = {
         },
         {
           floor: 4,
-          rooms: [
+          areas: [
             { id: id.next(), name: "401", staycount: 0 },
             { id: id.next(), name: "402", staycount: 0 },
             { id: id.next(), name: "403", staycount: 0 },
@@ -178,7 +178,7 @@ export const staycountsResponse: StaycountsResponse = {
       floors: [
         {
           floor: 1,
-          rooms: [
+          areas: [
             { id: id.next(), name: "事務室", staycount: 0 },
             { id: id.next(), name: "梶准教授", staycount: 0 },
             { id: id.next(), name: "梶研", staycount: 5 },
@@ -186,7 +186,7 @@ export const staycountsResponse: StaycountsResponse = {
         },
         {
           floor: 2,
-          rooms: [
+          areas: [
             { id: id.next(), name: "伊藤暢浩教授", staycount: 0 },
             { id: id.next(), name: "伊藤暢浩研", staycount: 3 },
             { id: id.next(), name: "河辺教授", staycount: 0 },
@@ -195,7 +195,7 @@ export const staycountsResponse: StaycountsResponse = {
         },
         {
           floor: 3,
-          rooms: [
+          areas: [
             { id: id.next(), name: "内藤教授", staycount: 0 },
             { id: id.next(), name: "内藤研", staycount: 0 },
             { id: id.next(), name: "松河教授", staycount: 0 },
@@ -205,7 +205,7 @@ export const staycountsResponse: StaycountsResponse = {
         },
         {
           floor: 4,
-          rooms: [
+          areas: [
             { id: id.next(), name: "澤野准教授", staycount: 0 },
             { id: id.next(), name: "澤野研", staycount: 0 },
             { id: id.next(), name: "水野教授", staycount: 0 },

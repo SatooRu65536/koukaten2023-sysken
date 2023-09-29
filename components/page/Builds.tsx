@@ -3,10 +3,15 @@ import { useRouter } from "next/router";
 import { getStyle } from "../util/util";
 import { useStaycount } from "@/hooks/useStaycount";
 import _ from "lodash";
+import { useEffect } from "react";
 
 export default function Builds() {
   const staycounts = useStaycount();
   const router = useRouter();
+
+  useEffect(() => {
+    console.log(staycounts);
+  }, [staycounts]);
 
   return (
     <div className={styles.builds}>
@@ -29,24 +34,24 @@ export default function Builds() {
           >
             {staycount.floors.map((floor) => (
               <div
-                className={styles.area}
+                className={styles.areas}
                 style={{ marginTop: `${getStyle(staycount.building).gap}px` }}
                 key={floor.floor}
               >
                 <h2 className={styles.area_name}>{floor.floor}F</h2>
 
-                {floor.rooms.map((room) => (
+                {floor.areas.map((area) => (
                   <span
-                    className={styles.room}
+                    className={styles.area}
                     onClick={() =>
                       router.push({
                         pathname: "/congestion",
-                        query: { roomId: `${room.id}` },
+                        query: { areaId: `${area.id}` },
                       })
                     }
-                    key={room.name}
+                    key={area.name}
                   >
-                    {room.name}
+                    {area.name}
                   </span>
                 ))}
               </div>

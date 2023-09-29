@@ -32,7 +32,7 @@
       flex-direction: column-reverse;
       justify-content: flex-start;
 
-      .area {
+      .areas {
         height: 50px;
         width: max-content;
         color: var(--on-primary);
@@ -45,7 +45,7 @@
           display: inline-block;
         }
 
-        .room {
+        .area {
           margin: 0 5px;
           padding: 0 5px;
           font-size: 2rem;

@@ -8,7 +8,7 @@ export type Staycount = {
   building: string;
   floors: {
     floor: number;
-    rooms: {
+    areas: {
       id: number;
       name: string;
       staycount: number | null;
@@ -21,7 +21,7 @@ export type Congestion = {
   building: string;
   floors: {
     floor: number;
-    rooms: {
+    areas: {
       id: number;
       name: string;
       congestion: number | null;
