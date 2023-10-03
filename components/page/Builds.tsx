@@ -47,7 +47,7 @@ export default function Builds() {
                     }
                     key={area.name}
                   >
-                    {area.name}
+                    {area.name} : {area.staycount}人
                   </span>
                 ))}
               </div>
