@@ -1,37 +1,36 @@
 import styles from "@/styles/Builds.module.scss";
 import { useRouter } from "next/router";
-import { getStyle } from "../util/util";
-import { useStaycount } from "@/hooks/useStaycount";
+import { getStyle, round } from "../util/util";
+import { useCongestion } from "@/hooks/useCongestion";
 import _ from "lodash";
-import { useEffect } from "react";
 
 export default function Builds() {
-  const staycounts = useStaycount();
+  const congestions = useCongestion();
   const router = useRouter();
 
   return (
     <div className={styles.builds}>
-      {staycounts.map((staycount) => (
-        <div className={styles.build} key={staycount.building}>
+      {congestions.map((congestion) => (
+        <div className={styles.build} key={congestion.building}>
           <div
             className={styles.image_container}
             style={{
-              ["--width-ratio" as string]: getStyle(staycount.building)
+              ["--width-ratio" as string]: getStyle(congestion.building)
                 .widthRatio,
-              backgroundImage: `url(/images/${staycount.building}.png)`,
+              backgroundImage: `url(/images/${congestion.building}.png)`,
             }}
           ></div>
 
           <div
             className={styles.selecter}
             style={{
-              paddingBottom: `${getStyle(staycount.building).bottomSpace}px`,
+              paddingBottom: `${getStyle(congestion.building).bottomSpace}px`,
             }}
           >
-            {staycount.floors.map((floor) => (
+            {congestion.floors.map((floor) => (
               <div
                 className={styles.areas}
-                style={{ marginTop: `${getStyle(staycount.building).gap}px` }}
+                style={{ marginTop: `${getStyle(congestion.building).gap}px` }}
                 key={floor.floor}
               >
                 <h2 className={styles.area_name}>{floor.floor}F</h2>
@@ -47,7 +46,10 @@ export default function Builds() {
                     }
                     key={area.name}
                   >
-                    {area.name} : {area.staycount}人
+                    {area.name}{" : "}
+                    <span className={styles.congestion}>
+                      {round(area.congestion)}%
+                    </span>
                   </span>
                 ))}
               </div>

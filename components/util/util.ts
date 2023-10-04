@@ -16,3 +16,10 @@ export function getStyle(buildId: string): {
       return { widthRatio: 1, gap: 6.5, bottomSpace: 0 };
   }
 }
+
+export function round(num: number | null) {
+  if (num === null) return null;
+  if (num > 100) return 100;
+  if (num % 1 === 0) return num.toFixed(1);
+  return Math.round(num * 10) / 10;
+}

@@ -55,6 +55,10 @@
           cursor: pointer;
           transition: all 0.3s;
 
+          .congestion {
+            font-size: 1.7rem;
+          }
+
           &:hover {
             opacity: 0.8;
           }
