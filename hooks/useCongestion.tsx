@@ -15,6 +15,7 @@ export function useCongestion() {
         const res = _.cloneDeep(tmpRes);
 
         if (res === null) return;
+        res.congestions = _.sortBy(res.congestions, "building");
         res.congestions.forEach((building) => {
           building.floors = _.sortBy(building.floors, "floor");
           building.floors.forEach((floor) => {

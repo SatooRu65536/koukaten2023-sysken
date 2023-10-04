@@ -15,6 +15,7 @@ export function useStaycount() {
         const res = _.cloneDeep(tmpRes);
 
         if (res === null) return;
+        res.staycounts
         res.staycounts.forEach((building) => {
           building.floors = _.sortBy(building.floors, "floor");
           building.floors.forEach((floor) => {
