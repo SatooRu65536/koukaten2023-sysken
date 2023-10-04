@@ -1,5 +1,10 @@
-import { CongestionsResponse, HistoriesResponse, StaycountsResponse } from "@/types";
+import {
+  CongestionsResponse,
+  HistoriesResponse,
+  StaycountsResponse,
+} from "@/types";
 import axios from "axios";
+import { formatDate } from "../util/util";
 
 const BASE_URL = "https://campuscrowdmonitor-api.sysken.net";
 
@@ -34,3 +39,12 @@ export const fetchStaycountHistory =
   async (): Promise<HistoriesResponse | null> => {
     return commonGetFetch<HistoriesResponse>("/api/v1/staycount/histories/");
   };
+
+export const fetchStaycountHistoryByDate = async (
+  roomId: string,
+  date: string
+): Promise<HistoriesResponse | null> => {
+  return commonGetFetch<HistoriesResponse>(
+    `/api/v1/staycount/history/${roomId}/?date=${date}`
+  );
+};
