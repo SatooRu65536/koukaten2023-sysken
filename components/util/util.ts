@@ -3,6 +3,7 @@ export function getStyle(buildId: string): {
   bottomSpace: number;
   widthRatio: number;
 } {
+  console.log(buildId);
   switch (buildId) {
     case "1号館":
       return { widthRatio: 1, gap: 6.5, bottomSpace: 0 };
@@ -12,6 +13,12 @@ export function getStyle(buildId: string): {
       return { widthRatio: 0.7, gap: 15, bottomSpace: 8 };
     case "4号館別館":
       return { widthRatio: 0.87, gap: 15, bottomSpace: 8 };
+    case "AITプラザ":
+      return { widthRatio: 0.8, gap: 15, bottomSpace: 0 };
+    case "愛和会館":
+      return { widthRatio: 0.87, gap: 20, bottomSpace: 0 };
+      case "セントラル":
+        return { widthRatio: 0.9, gap: 6.5, bottomSpace: 0 };
     default:
       return { widthRatio: 1, gap: 6.5, bottomSpace: 0 };
   }
