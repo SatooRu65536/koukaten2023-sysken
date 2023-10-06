@@ -7,13 +7,14 @@ import {
   Tooltip,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
-import { faker } from "@faker-js/faker";
 import { _DeepPartialObject } from "chart.js/dist/types/utils";
 import { useState } from "react";
 import { labels } from "@/const";
 import { useHistories } from "@/hooks/useHistories";
 import { useDidUpdate } from "@mantine/hooks";
 import _ from "lodash";
+import { fetchStaycountHistoryByDate } from "@/components/api/api";
+import { formatNumber } from "@/components/util/util";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip);
 
@@ -92,16 +93,22 @@ export default function Linechart({ roomId }: { roomId: string }) {
   }
 
   useDidUpdate(() => {
-    const tmpDate = `${date.year}-${date.month}-${date.day}`;
-    const tmpData = getHistory(roomId, tmpDate);
+    if (roomId === undefined) return;
 
-    if (tmpData !== null) {
-      setData((d) => {
-        const cloneData = _.cloneDeep(d);
-        cloneData.datasets[0].data = tmpData;
-        return cloneData;
-      });
-    }
+    (async () => {
+      const mm = formatNumber(date.month);
+      const dd = formatNumber(date.day);
+      const tmpDate = `${date.year}-${mm}-${dd}`;
+      const tmpData = await fetchStaycountHistoryByDate(roomId, tmpDate);
+
+      if (tmpData !== null) {
+        setData((d) => {
+          const cloneData = _.cloneDeep(d);
+          cloneData.datasets[0].data = tmpData.histories[roomId];
+          return cloneData;
+        });
+      }
+    })();
   }, [date]);
 
   useDidUpdate(() => {
@@ -113,7 +120,7 @@ export default function Linechart({ roomId }: { roomId: string }) {
           backgroundColor: "rgb(252, 109, 105)",
         },
       ],
-    })
+    });
   }, [histories]);
 
   return (
@@ -126,12 +133,12 @@ export default function Linechart({ roomId }: { roomId: string }) {
         <Bar options={options} data={data} />
       </div>
 
-      {/* <div className={styles.arrow} onClick={prevDate}>
+      <div className={styles.arrow} onClick={prevDate}>
         {"<"}
       </div>
       <div className={styles.arrow} onClick={nextDate}>
         {">"}
-      </div> */}
+      </div>
     </div>
   );
 }
